@@ -25,6 +25,9 @@
 
                 </div>
             </div>
+
+
+
         </div>
     </div>
 </section>
@@ -46,18 +49,6 @@
             const maxSizeInBytes = 1 * 1024 * 1024; // 5 MB
 
             Array.from(fileInput.files).forEach(file => {
-                // if (file.size > maxSizeInBytes) {
-                //     errorDiv.innerHTML += `<div class="alert alert-danger" role="alert">${file.name} exceeds size limit.</div>`
-                //     return;
-                // }
-
-                // const extension = file.name.split('.').pop().toLowerCase();
-                // if (!allowedExtensions.includes(extension)) {
-                //     errorDiv.innerHTML += `<div class="alert alert-danger" role="alert">${file.name} has an invalid extension.</div>`
-                //     return;
-                // }
-
-
                 const formData = new FormData();
                 formData.append('image', file);
                 console.log(formData)
@@ -85,5 +76,66 @@
             });
         }
     });
+
+
+    // document.getElementById('imageInput').addEventListener('change', async function() {
+    //     const fileInput = this;
+    //     const imagePreview = document.getElementById('imagePreview');
+    //     const errorDiv = document.getElementById('errors-div');
+    //     const allowedExtensions = ['jpg', 'jpeg', 'png'];
+
+    //     if (fileInput.files && fileInput.files.length > 0) {
+    //         const maxSizeInBytes = 5 * 1024 * 1024; // 5 MB
+
+    //         for (const file of fileInput.files) {
+
+    //             const fileExtension = file.name.split('.').pop().toLowerCase();
+    //             // if (!allowedExtensions.includes(fileExtension)) {
+    //             //     errorDiv.innerHTML += `<div class="alert alert-danger" role="alert">Invalid file extension: ${file.name}</div>`;
+    //             //     continue;
+    //             // }
+
+    //             // if (file.size > maxSizeInBytes) {
+    //             //     errorDiv.innerHTML += `<div class="alert alert-danger" role="alert">File size exceeds limit: ${file.name}</div>`;
+    //             //     continue;
+    //             // }
+
+    //             const formData = new FormData();
+    //             formData.append('image', file);
+
+    //             try {
+    //                 const response = await fetch('/upload-image', {
+    //                     method: 'POST',
+    //                     headers: {
+    //                         'X-CSRFToken': '{{ csrf_token }}'
+    //                     },
+    //                     body: formData
+    //                 });
+
+    //                 const data = await response.json();
+    //                 if (data.status === 200) {
+    //                     const imageUrl = data.image_url;
+    //                     imagePreview.innerHTML += `<div class="col-3"><img src="${imageUrl}" class="img-fluid"></div>`;
+    //                     console.log(data.message);
+    //                 } else {
+    //                     errorDiv.innerHTML += `<div class="alert alert-danger" role="alert">${data.message}</div>`;
+    //                 }
+    //             } catch (error) {
+    //                 errorDiv.innerHTML += `<div class="alert alert-danger" role="alert">Front error. ${error}</div>`;
+    //             }
+    //         }
+    //     }
+    // });
+
+
+
 </script>
 {% endblock %}
+
+
+
+
+
+
+
+
